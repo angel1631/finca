@@ -1,0 +1,27 @@
+tengo que habilitar el pdo de mysql o base a utilizar en el php.ini
+
+lo de users no es automatico creo revisar bien, mejor guiarme con dashboard
+
+
+link de codigo y videos
+http://jream.com/lab
+
+
+cambiar la tabla users a user 
+
+
+revisar si dashboard o usuario es el mero bueno 
+y revisar que funcione el dashboard
+
+
+con el form de lib 
+puedo ir a hacer las validaciones y luego si todo regresa bien entonces 
+directamente a guardar 
+
+
+para pasar arreglos voy a necesitar un $arr = func_get_arg();
+
+
+los punto .post los puedo cambiar por .ajax
+
+para usar metadata en el header
