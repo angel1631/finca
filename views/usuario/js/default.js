@@ -375,6 +375,7 @@ $(document).ready(function(){
 	});
 
 	function reporte_fechas(){
+		$('#divQR').html('');
 		var datos = {inicio: $("#txt_Rfecha_inicio").val(), fin: $("#txt_Rfecha_fin").val()};
 		var datos_json = JSON.stringify(datos)
 		
@@ -410,6 +411,7 @@ $(document).ready(function(){
 	}
 
 	function reporte_jornadas(){
+		$('#divQR').html('');
 		var datos = {jornada: $("#slt_Rjornada").val()};
 		var datos_json = JSON.stringify(datos)
 		
@@ -446,6 +448,7 @@ $(document).ready(function(){
 	}
 
 	function reporte_puestos(){
+		$('#divQR').html('');
 		var datos = {puesto: $("#slt_Rpuesto").val()};
 		var datos_json = JSON.stringify(datos)
 		
@@ -483,3 +486,12 @@ $(document).ready(function(){
 
 });
 
+function GenerarQR(id) {
+	$('#divQR').html('');
+	$('#divQR').qrcode({
+		    "size": 100,
+		    "color": "#3a3",
+		    "text": ' ' + id
+		});
+
+}

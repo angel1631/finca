@@ -27,21 +27,28 @@ class planilla_Imp implements iPlanilla{
 
 		echo json_encode($result);*/
 public function generar(){
-	  ;
        $values = json_decode($_POST['values']);
         
         //recibo el nombre de la planilla y el tipo de puesto al que le voy a generar 
         $nombre = $values->nombre;
         $tipo = $values->puesto;
+        $mes = $values->mes;
+        $anio = $values->anio;
+        $puesto = $values->puesto;
 
         //1)
         //crear planilla
-        $data = array(
+        $data = array
+        (
             'id'=>'',
             'titulo'=>$nombre,
             'momento'=>'',
             'autorizo'=>'Javier',
-            'estado'=>1);
+            'estado'=>1,
+            'mes' => $mes,
+            'anio' => $anio,
+            'puesto' => $puesto
+        );
 
 
         $planilla = new planilla_model($data);
@@ -208,7 +215,127 @@ public function generar(){
 
     }
 
-	
+	public function validar(){
+        
+      $values = json_decode($_POST['values']);
+        
+        //recibo el nombre de la planilla y el tipo de puesto al que le voy a generar 
+        
+        $mes = $values->mes;
+        $anio = $values->anio;
+        $puesto = $values->puesto;
+        $planilla  = planilla_model::where('mes', $mes, 'anio', $anio, 'puesto', $puesto);
 
+        if ($planilla)
+        {
+            $result = array('cod' => 1, 'msj' => 'Esta planilla ya fue generada anteriormente');
 
+        } else {
+            $result = array('cod' => 2, 'msj' => 'no existe');
+
+        }
+
+        echo json_encode($result);
+
+    }
+
+    public function reporte(){
+        $values = json_decode($_POST['values']);
+        
+        //recibo el nombre de la planilla y el tipo de puesto al que le voy a generar 
+        
+        $mes = $values->mes;
+        $anio = $values->anio;
+        $puesto = $values->puesto;
+        $datos = array( 'mes' => $mes  );
+        $planilla  = planilla_model::where('anio', '2016');
+        if ($planilla)
+        {
+            $data = '<table>'
+                . '<table  border="6" style="width: 50%px;" align="center">'
+            . '<caption id="cpt_reporte"></caption>'
+            . '<thead bgcolor="#58ACFA" id="tb_Rcabesa">'
+            . '<tr>'
+            . '<td>#</td>'
+            . '<td>Titulo</td>'
+            . '<td>Fecha Generaci&oacute;n</td>'
+            . '<td>Puesto</td>'
+            . '<td>Mes</td>'
+            . '<td>a&ntilde;o</td>'
+            . '</tr>'
+            . '</thead>'
+
+            . '<tbody id="tb_Rbody">';
+
+            $count = 1;
+            foreach ($planilla as $pl) {
+
+                $data .= '<tr>'
+                    . '<td><a class="planilla" href="#" id ="'. $pl->id.'">' . $count++ . '</a></td>'
+                    . '<td>' . $pl->titulo . '</td>'
+                    . '<td>' . $pl->momento . '</td>'
+                    . '<td>' . $pl->obj_puesto->titulo. '</td>'
+                    . '<td>' . $pl->mes . '</td>'
+                    . '<td>' . $pl->anio . '</td>'
+                    . '</tr>';
+            }
+            $data .= '</tbody>'
+                . '</table>';
+            $result = array('cod' => 1, 'msj' => $data);
+
+        } else {
+            $result = array('cod' => 2, 'msj' => 'no existe');
+
+        }
+        echo json_encode($result);
+    }
+
+public function reporte2(){
+        $values = json_decode($_POST['values']);
+        
+        //recibo el nombre de la planilla y el tipo de puesto al que le voy a generar 
+        
+        $pl = $values->planilla;
+        
+        $planilla  = descripcion_planilla_model::where('planilla', $pl);
+               
+        if ($planilla)
+        {
+            $data = '<h3> Detalle de Planila '.$pl.'</h3>' 
+            . '<table>'
+            . '<table  border="6" style="width: 50%px;" align="center">'
+            . '<caption id="cpt_reporte"></caption>'
+            . '<thead bgcolor="#58ACFA" id="tb_Rcabesa">'
+            . '<tr>'
+            . '<td>#</td>'
+            . '<td>Usuario</td>'
+            . '<td>Fecha Generaci&oacute;n</td>'
+            . '<td>Salario</td>'
+            . '</tr>'
+            . '</thead>'
+
+            . '<tbody id="tb_Rbody">';
+
+            $count = 1;
+            foreach ($planilla as $pl) {
+
+                $data .= '<tr>'
+                    
+                    . '<td>' . $pl->planilla . '</td>'
+                    . '<td>' . $pl->obj_usuario->nombre . '</td>'
+                    . '<td>' . $pl->creado . '</td>'
+                    . '<td>' . $pl->monto . '</td>'
+                    
+                    . '</tr>';
+            }
+            $data .= '</tbody>'
+                . '</table>';
+            $result = array('cod' => 1, 'msj' => $data);
+
+        } else {
+            $result = array('cod' => 2, 'msj' => 'no existe');
+
+        }
+        echo json_encode($result);
+    }
 }

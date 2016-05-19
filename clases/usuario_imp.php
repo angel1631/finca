@@ -371,7 +371,7 @@ class usuario_Imp implements iUsuario{
                 
                 	$cuerpo= $cuerpo."<tr>";
                 	//$cuerpo = $cuerpo. "<td>".$p->obj_usuario->nombre."</td>";
-                    $cuerpo= $cuerpo."<td>".$user->id."</td>";
+                    $cuerpo= $cuerpo."<td><a href='#' onclick='GenerarQR(".$user->id.");'>".$user->id."</a></td>";
                     $cuerpo= $cuerpo."<td>".$user->nombre."</td>";
                     $cuerpo= $cuerpo."<td>".$user->apellido."</td>";
                     $cuerpo= $cuerpo."<td>".$user->obj_tipo->titulo."</td>";
@@ -424,7 +424,7 @@ class usuario_Imp implements iUsuario{
                 
                 	$cuerpo= $cuerpo."<tr>";
                 	//$cuerpo = $cuerpo. "<td>".$p->obj_usuario->nombre."</td>";
-                    $cuerpo= $cuerpo."<td>".$user->id."</td>";
+                    $cuerpo= $cuerpo."<td><a href='#' onclick='GenerarQR(".$user->id.");'>".$user->id."</a></td>";
                     $cuerpo= $cuerpo."<td>".$user->nombre."</td>";
                     $cuerpo= $cuerpo."<td>".$user->apellido."</td>";
                     $cuerpo= $cuerpo."<td>".$user->obj_tipo->titulo."</td>";
@@ -476,7 +476,7 @@ class usuario_Imp implements iUsuario{
                 
                 	$cuerpo= $cuerpo."<tr>";
                 	//$cuerpo = $cuerpo. "<td>".$p->obj_usuario->nombre."</td>";
-                    $cuerpo= $cuerpo."<td>".$user->id."</td>";
+                    $cuerpo= $cuerpo."<td><a href='#' onclick='GenerarQR(".$user->id.");'>".$user->id."</a></td>";
                     $cuerpo= $cuerpo."<td>".$user->nombre."</td>";
                     $cuerpo= $cuerpo."<td>".$user->apellido."</td>";
                     $cuerpo= $cuerpo."<td>".$user->obj_tipo->titulo."</td>";

@@ -1,8 +1,11 @@
 
+<!--<script src="jquery-1.11.3.min.js"></script>-->
+	<script src="qr/jquery.qrcode-0.12.0.js"></script>
 <STYLE TYPE="text/css">
 	
 	.javier {color:blue;}
 </STYLE>
+
 <div>
 	<button id="mn_nuevo">Nuevo</button><button id="mn_editar">Editar</button><button id="mn_reporte">Reporte</button>
 </div>
@@ -166,6 +169,11 @@
 
 		</table>
 	</div>
-
+	<br>
+	<br>
+	
 
 </div>
+<center>
+		<div id="divQR"></div>
+	</center>	

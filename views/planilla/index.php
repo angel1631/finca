@@ -43,4 +43,11 @@
 	<h1>Reporte de Planillas</h1>
 	<br/>
 	<br/>
+	
+	<div id="reporte"></div>
+	<br/>
+	<br/>
+	
+	<center><div id="divDetalle"></div></center>
+
 </div>

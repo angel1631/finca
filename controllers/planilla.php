@@ -29,11 +29,10 @@ class Planilla extends Controller{
 	
 
 	function reporte(){
-		//$this->view->title = 'Planilla';
-		//$this->view->render('header');
-		//vista carpeta/archivo
-		//$this->view->render('planilla/reporte');
-		//$this->view->render('footer');
+		$this->Bl->reporte();
+	}
+	function reporte2(){
+		$this->Bl->reporte2();
 	}
 
 	function generar(){
@@ -47,6 +46,9 @@ class Planilla extends Controller{
 	function prueba(){
 		$this->Bl->prueba();
 
+	}
+	function validar(){
+		$this->Bl->validar();
 	}
 
 	

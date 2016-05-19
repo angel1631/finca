@@ -36,6 +36,8 @@ require_once('IORM.php');
 			return $obj;
 		}
 
+		
+
 		public static function like($field, $value){
 			$obj = null;
 			self::getConnection();

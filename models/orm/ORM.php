@@ -21,7 +21,12 @@
 		public static function where($field, $value){
 			$obj = null;
 			self::getConnection();
-			$query = "SELECT * FROM ".static:: $table." WHERE ". $field." = ? and estado = 1";
+			if ( trim($field) == 'estado') {
+				$estado = '';
+			} else {
+				$estado = 'and estado = 1';
+			}
+			$query = "SELECT * FROM ".static:: $table." WHERE ". $field." = ? " . $estado;
 			$results = self::$database->execute($query, null, array($value));
 
 			if($results){
@@ -33,6 +38,7 @@
 
 			return $obj;
 		}
+		
 
 		
 
