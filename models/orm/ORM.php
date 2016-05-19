@@ -27,6 +27,7 @@
 				$estado = 'and estado = 1';
 			}
 			$query = "SELECT * FROM ".static:: $table." WHERE ". $field." = ? " . $estado;
+			$query = "SELECT * FROM ".static:: $table." WHERE ". $field." = ? and estado = 1";
 			$results = self::$database->execute($query, null, array($value));
 
 			if($results){
@@ -38,9 +39,38 @@
 
 			return $obj;
 		}
-		
 
-		
+		public static function login($value){
+			$obj = null;
+			self::getConnection();
+			$query = "SELECT * FROM ".static:: $table." WHERE tipo = 12 and id =".$value;
+			$results = self::$database->execute($query, null, null);
+
+			if($results){
+				$class = get_called_class();
+				for($i = 0; $i<sizeof($results); $i++){
+					$obj[] = new $class($results[$i]);
+				}
+			}
+
+			return $obj;
+			//return $query;
+		}
+
+		public static function like_tipo($field, $value){
+			$obj = null;
+			self::getConnection();
+			$query = "SELECT * FROM ".static:: $table." where ". $field." like '%".$value."%' and tipo = 11";
+			$results = self::$database->execute($query, null, null);
+			if($results){
+				$class = get_called_class();
+				for($i = 0; $i<sizeof($results); $i++){
+					$obj[] = new $class($results[$i]);
+				}
+			}
+			return $obj;
+			//return $query;
+		}
 
 		public static function like($field, $value){
 			$obj = null;

@@ -5,6 +5,8 @@ class Login extends Controller{
 	function __construct(){
 		parent::__construct(); //llamar el construct del padre que es controller(libs/controller)
 		
+	
+		$this->view->js = array('login/js/default.js');
 	}
 
 	function index(){
@@ -18,7 +20,7 @@ class Login extends Controller{
 	}
 
 
-	function run(){
-		$this->model->run();
+	function entrar(){
+		$this->Bl->entrar();
 	}
 }

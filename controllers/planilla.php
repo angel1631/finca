@@ -5,7 +5,7 @@ class Planilla extends Controller{
 	function __construct(){
 		parent::__construct(); //llamar el construct del padre que es controller(libs/controller)
 		
-		//Auth::handleLogin();
+		Auth::handleLogin();
 
 		
 		//ya tenogo incluido el jquery y aqui mando a llamar su javascript independiente de cada vista 
@@ -33,6 +33,11 @@ class Planilla extends Controller{
 	}
 	function reporte2(){
 		$this->Bl->reporte2();
+		//$this->view->title = 'Planilla';
+		//$this->view->render('header');
+		//vista carpeta/archivo
+		//$this->view->render('planilla/reporte');
+		//$this->view->render('footer');
 	}
 
 	function generar(){
@@ -47,11 +52,10 @@ class Planilla extends Controller{
 		$this->Bl->prueba();
 
 	}
-	function validar(){
-		$this->Bl->validar();
-	}
 
-	
+		function validar(){
+		$this->Bl->validar();
+	}	
 	
 
 }

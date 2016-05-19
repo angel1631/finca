@@ -55,6 +55,9 @@
 					<a href="<?php echo URL; ?>planilla"><div class="contenedor_opcion_principal">
 						<li> Planilla </li>
 					</div></a>
+					<a href="<?php echo URL; ?>key"><div class="contenedor_opcion_principal">
+						<li> Sync_Key </li>
+					</div></a>
 					
 					
 				</nav>

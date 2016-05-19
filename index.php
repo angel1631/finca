@@ -9,6 +9,8 @@ require_once("clases/ijornada.php");
 require_once("clases/itmarcaje.php");
 require_once("clases/imarcaje.php");
 require_once("clases/iplanilla.php");
+require_once("clases/ikey.php");
+require_once("clases/ilogin.php");
 
 
 require_once("models/orm/config.php");
@@ -24,6 +26,9 @@ require_once("models/orm/IORM.php");
 require_once("models/orm/ORM_imp.php");
 require_once("models/orm/usuario_orm.php");
 require_once("generarQR/phpqrcode.php");
+require_once("models/orm/marcaje_model.php");
+require_once("models/orm/key_model.php");
+require_once("models/orm/login_model.php");
 
 
 //require_once("clases/usuario_imp.php");
